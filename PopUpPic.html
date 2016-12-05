@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <title>Pop-Up Picture</title>
-</head>
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
     <style>
         a:link{
             text-decoration:none;
@@ -32,48 +32,48 @@
             margin-top: -180px;
         }
     </style>
-    <h1>
-        Hover over any image below to learn crazy cool things!
-    </h1>
-    <div id="container">
+</head>
+<body>
+<h1>
+    Hover over any image below to learn crazy cool things!
+</h1>
+<div id="container">
     <section>
         <div id="major"> <!--For the top center picture-->
-            <a href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s" target="_blank" >
+            <a href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s" >
                 <img src="../Black_Pete.jpg" alt="Image not found."/>
             </a>
         </div>
         <div id="minor">  <!-- For the bottom images -->
-            <a href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s" target="_blank" >
+            <a href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s">
                 <img src="../Black_Pete.jpg" alt="Image not found."/>
             </a>
-            <a href="http://www.businessinsider.com/denver-airport-conspiracy-theories-2016-9" target="_blank">
+            <a href="http://www.businessinsider.com/denver-airport-conspiracy-theories-2016-9">
                 <img src="../Denver_international_airport.jpg" alt="Image not found"/>
             </a>
             <a href="https://www.youtube.com/watch?v=9QcVNahOavw">
-                <img src="../yankee_doodle.jpg" alt="Image not found" target="_blank"/>
+                <img src="../yankee_doodle.jpg" alt="Image not found"/>
             </a>
             <a href="http://www.nytimes.com/2016/12/02/opinion/seduced-and-betrayed-by-donald-trump.html?smid=fb-nytimes&smtyp=cur">
-                <img src="../Trump.png" alt="Image not found" target="_blank"/>
+                <img src="../Trump.png" alt="Image not found"/>
             </a>
             <a href="http://www.newyorker.com/magazine/2015/01/05/button-pusher">
-                <img src="../BlackMirror.jpg" alt="Image not found" target="_blank"/>
+                <img src="../BlackMirror.jpg" alt="Image not found"/>
             </a>
         </div>
     </section>
-    </div>
-    <script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-    </script>
-    <script>
-        $(document).ready(function(){
-            $('#minor a').mouseover(function()
-            {
-                var linkChange = $(this).attr('href');
-                var picChange  = $(this).find('img').attr('scr');
-                $('#major a').attr('href', linkChange);
-                $('#major a img').attr('img',picChange);
-
-            })
-        })
-    </script>
+</div>
 </body>
+<script>
+    $(document).ready(function(){
+        $('#minor').find('a').mouseover(function()
+                {
+                    var linkChange = $(this).attr('href');
+                    var picChange  = $(this).find('img').attr('scr');
+                    $('#major').find('a').attr('href',linkChange);
+                    $('#major').find('a img').attr('img', picChange);
+
+                })
+    });
+</script>
 </html>
