@@ -3,8 +3,37 @@
 <head>
     <title>Pop-Up Picture</title>
     <style>
+        body{
+            background-color: #0d1c33;
+        }
         a:link{
             text-decoration:none;
+        }
+        section {
+            margin: 15px 15px;
+        }
+        #minor a {
+            display: inline-block;
+            padding: 5px;
+        }
+        #minor a img {
+            width: 160px;
+            height: 180px;
+        }
+        #major {
+            width: 320px;
+            height: 360px;
+        }
+        #major a img {
+            width: 320px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -160px;
+            margin-top: -180px;
+        }
+        h1{
+            color: lightseagreen;
         }
     </style>
 </head>
@@ -12,52 +41,39 @@
 <h1>
     Hover over any image below to learn crazy cool things!
 </h1>
-        <!--For the top center picture-->
-            <a id= "center"href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s" >
-                <img id="main_pic" src="../Black_Pete.jpg" alt="Image not found." width="200" height="200"/>
+<div id="container">
+    <section>
+        <div id="major"> <!--For the top center picture-->
+            <a id="mainLink" href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s" >
+                <img id="mainImg" src="../Black_Pete.jpg" alt="Image not found."/>
             </a>
-         <!-- For the bottom images -->
-            <a href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s">
-                <img src="../Black_Pete.jpg" alt="Image not found." width="100" height="100"/>
+        </div>
+        <div id="minor">  <!-- For the bottom images -->
+            <a id="bPete" href="https://www.youtube.com/watch?v=jBqoH-qx-os&t=0s" onmouseover="onHoverLink('bPete')">
+                <img id= "Pete" src="../Black_Pete.jpg" alt="Image not found." onmouseover="onHoverPic('Pete')"/>
             </a>
-            <a href="http://www.businessinsider.com/denver-airport-conspiracy-theories-2016-9">
-                <img src="../Denver_international_airport.jpg" width="100" height="100"/>
+            <a id="dAirport" href="http://www.businessinsider.com/denver-airport-conspiracy-theories-2016-9"  onmouseover="onHoverLink('dAirport')">
+                <img id="Denver" src="../Denver_international_airport.jpg" alt="Image not found" onmouseover="onHoverPic('Denver')"/>
             </a>
-            <a href="https://www.youtube.com/watch?v=9QcVNahOavw">
-                <img src="../yankee_doodle.jpg" alt="Image not found" width="100" height="100"/>
+            <a id="yDoodle" href="https://www.youtube.com/watch?v=9QcVNahOavw"  onmouseover="onHoverLink('yDoodle')">
+                <img id="Yankee" src="../yankee_doodle.jpg" alt="Image not found" onmouseover="onHoverPic('Yankee')"/>
             </a>
-            <a href="http://www.nytimes.com/2016/12/02/opinion/seduced-and-betrayed-by-donald-trump.html?smid=fb-nytimes&smtyp=cur">
-                <img src="../Trump.png" alt="Image not found" width="100" height="100"/>
+            <a id="tSupport" href="http://www.nytimes.com/2016/12/02/opinion/seduced-and-betrayed-by-donald-trump.html?smid=fb-nytimes&smtyp=cur"  onmouseover="onHoverLink('tSupport')">
+                <img id="Support" src="../Trump.jpg" alt="Image not found" onmouseover="onHoverPic('Support')"/>
             </a>
-            <a href="http://www.newyorker.com/magazine/2015/01/05/button-pusher">
-                <img src="../BlackMirror.jpg" alt="Image not found" width="100" height="100"/>
+            <a id="bMirror" href="http://www.newyorker.com/magazine/2015/01/05/button-pusher"  onmouseover="onHoverLink('bMirror')">
+                <img id="Mirror"src="../BlackMirror.jpg" alt="Image not found" onmouseover="onHoverPic('Mirror')"/>
             </a>
+        </div>
+    </section>
+</div>
 </body>
 <script>
-    window.onload= function(){
-        var center = document.getElementById("center"); //assigns the html center picture and link to a variable
-        var mainPic= document.getElementById("main_pic");
-
-        var linkHover= function (){ //this is the link function that will give the center picture the link of the hovered picture
-            center.href = this.href;
-        };
-
-        var picHover= function () {  //this is the picture function that will give the center picture similar characteristics of the hovered pic
-            mainPic.src= this.src;
-            mainPic.width= 2*this.width;
-            mainPic.height= 2*this.height;
-            mainPic.alt = this.alt;
-        };
-
-        var minorLinks= document.getElementsByTagName("a");
-        var minorPics= document.getElementsByTagName("img");
-
-        for(var j=0; j< minorLinks.length; j++)
-        {
-            minorLinks[j].onmouseOver = linkHover;
-            minorPics[j].onmouseOver = picHover;
-        }
-
+    function onHoverPic(id) {
+        document.getElementById("mainImg").src = document.getElementById(id).src;
+    }
+    function onHoverLink(id){
+        document.getElementById("mainLink").href = document.getElementById(id).href;
     }
 </script>
 </html>
